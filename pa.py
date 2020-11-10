@@ -73,7 +73,7 @@ def cucun(word_mause):#爬取数据到数据库
     print('打开数据库成功')
     cursor = db.cursor()#创建一个游标
     for key in word_mause:#word_mause是一个字典，模型：{'comment': ['[ˈkɔment]', 'n. 评论，意见；体现，写照', '四级必备词汇']}
-        sql = 'INSERT INTO dictory_01(word, phonetic_symbol, definition, pronunciation, dictionnary_name) values(%s, %s, %s, %s, %s)'#构造sql语句
+        sql = 'INSERT INTO dictory_02(word, phonetic_symbol, definition, pronunciation, dictionary_name) values(%s, %s, %s, %s, %s)'#构造sql语句
         try: 
             cursor.execute(sql, (key,word_mause[key][0],word_mause[key][1],'music/'+key+'.mp3',word_mause[key][2]))
             db.commit()#插入数据
